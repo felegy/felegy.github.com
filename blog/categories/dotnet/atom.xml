@@ -4,7 +4,7 @@
   <title><![CDATA[Category: dotnet | LiveWire]]></title>
   <link href="http://felegy.github.com/blog/categories/dotnet/atom.xml" rel="self"/>
   <link href="http://felegy.github.com/"/>
-  <updated>2013-03-03T11:12:42+01:00</updated>
+  <updated>2013-03-03T20:09:40+01:00</updated>
   <id>http://felegy.github.com/</id>
   <author>
     <name><![CDATA[felegy]]></name>
@@ -130,7 +130,7 @@
 <p>Nem akarom az msbuild script készítés rejtelmeit hosszan ecsetelni, majd egy másik poszt (vagy posztok) alkalmával. Csak a build szerver szempontjából írom le a telepítést. <a href="http://devopsreactions.tumblr.com/post/44210497845/visiting-the-guy-that-wrote-the-build-scripts">Fun</a></p>
 
 <ol>
-<li><code>C:\Program Files (x86)\MSBuild</code> mappába be kell másolni a szükséges dolgokat, én a fejlesztői gépem teljes <code>MSBuild</code> mappájával felülmásoltam a buidl gépét</li>
+<li><code>C:\Program Files (x86)\MSBuild</code> mappába be kell másolni a szükséges dolgokat, én a fejlesztői gépem teljes <code>MSBuild</code> mappájával felülmásoltam a build gépét</li>
 <li>Visual Studio -ban a projektünkben installálni kell <a href="http://nuget.org/packages/MSBuildTasks/">MSBuildTasks</a> <code>NuGet</code> csomagot</li>
 <li>A solution mappánkban keletkezik egy <code>build.proj</code> file</li>
 <li>A lentebb mellékelt <code>build.cmd</code> -t tegyük a repository-ba (a script feltételezi, hogy a forrás az <code>src</code> mappában van)</li>
@@ -156,7 +156,7 @@
 
 <ol>
 <li><code>New Job/Build a free-style software project</code> és adjuk meg a job nevét</li>
-<li><code>Source Code Management</code>, válaszunk <code>git</code>-et és a <code>Repository URL</code> mazőbe adjuk meg a repository-nkat (ssh url-t érdemes választan, de ehez rá kell látni a repository szerver 22-es portjára, ha ez nem lehetséges akkor a <code>https</code> url-t kell a követjkezőképpen <code>https://{user}:{password}@{git server}/{repository}.git</code> )</li>
+<li><code>Source Code Management</code>, válaszunk <code>git</code>-et és a <code>Repository URL</code> mezőbe adjuk meg a repository-nkat (ssh url-t érdemes választan, de ehez rá kell látni a repository szerver 22-es portjára, ha ez nem lehetséges akkor a <code>https</code> url-t kell a követjkezőképpen <code>https://{user}:{password}@{git server}/{repository}.git</code> )</li>
 <li><code>Branch Specifier</code> mezőbe a build branch-et kell megadni (én mindíg saját branch-ben dolgozom és csak a <code>master</code>-t fordíttatom a build géppel), ha üresen hagyjuk akkor az összes branch-et figyeli</li>
 <li><code>Build Triggers</code> részen a <code>Poll SCM</code> -et pipáljuk be és a <code>Schedule</code> mezőbe írjunk mondjuk: <code>*/1 * * * *</code> ez minden percben megnézi, hogy van-e változás a repository-ban</li>
 </ol>
@@ -182,7 +182,7 @@
 <li>Job-unk konfigurációs oldalán <code>Add build step</code> és válasszuk <code>Build a Visual Studio project or solution using MSBuild</code></li>
 <li><code>MSBuild Version</code> -nél az előbbi <code>.net 4</code>-et válasszuk</li>
 <li><code>MSBuild Build File</code> mezőbe pl. <code>src/Build.proj</code></li>
-<li><code>Command Line Arguments</code> mezőben adjuk meg a szükséges paramétereket, itt kiindulhatunka <code>build.cmd</code> paramétereiből, de elég csak a <code>/tv:4.0</code> paramétert megadni, ez a 4.0 target version (4.5 esetén is ezt kell megadni)</li>
+<li><code>Command Line Arguments</code> mezőben adjuk meg a szükséges paramétereket, itt kiindulhatunk a <code>build.cmd</code> paramétereiből, de elég csak a <code>/tv:4.0</code> paramétert megadni, ez a 4.0 target version (4.5 esetén is ezt kell megadni)</li>
 </ul>
 </li>
 </ol>
