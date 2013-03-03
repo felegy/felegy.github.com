@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[LiveWire]]></title>
-  <link href="http://felegy.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: dotnet | LiveWire]]></title>
+  <link href="http://felegy.github.com/blog/categories/dotnet/atom.xml" rel="self"/>
   <link href="http://felegy.github.com/"/>
   <updated>2013-03-03T11:12:42+01:00</updated>
   <id>http://felegy.github.com/</id>
@@ -27,47 +27,28 @@
 <li>Meg kell szerkeszteni a <code>Jenkins.xml</code> -t pl. <code>--httpPort=6080</code> így a 6080-as portot fogja használni</li>
 <li>Fel kell venni egy local user-t, pl. <code>builder</code> és jelszót is be kell állítani neki és adjunk full jogot a <code>C:\CI\Jenkins</code> mappára.</li>
 <li>Be kell állítani a service-ek között a <code>Jenkins</code>-t, hogy a fentebb létrehozott felhasználó nevében fusson</li>
-<li>Indítsuk újra a service-t</li>
+<li>Indítsuk újra a service-t
+<code>xml Jenkins config
+ &lt;service&gt;
+&lt;id&gt;jenkins&lt;/id&gt;
+&lt;name&gt;Jenkins&lt;/name&gt;
+&lt;description&gt;This service runs Jenkins continuous integration system.&lt;/description&gt;
+&lt;env name="JENKINS_HOME" value="%BASE%"/&gt;
+&lt;!--
+ if you'd like to run Jenkins with a specific version of Java, specify a full path to java.exe.
+ The following value assumes that you have java in your PATH.
+--&gt;
+&lt;executable&gt;%BASE%\jre\bin\java&lt;/executable&gt;
+&lt;arguments&gt;-Xrs -Xmx256m -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar "%BASE%\jenkins.war" --httpPort=6080&lt;/arguments&gt;
+&lt;!--
+ interactive flag causes the empty black Java window to be displayed.
+ I'm still debugging this.
+&lt;interactive /&gt;
+--&gt;
+&lt;logmode&gt;rotate&lt;/logmode&gt;
+&lt;/service&gt;
+</code></li>
 </ol>
-
-
-<figure class='code'><figcaption><span>Jenkins config</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;service&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;id&gt;</span>jenkins<span class="nt">&lt;/id&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;name&gt;</span>Jenkins<span class="nt">&lt;/name&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;description&gt;</span>This service runs Jenkins continuous integration system.<span class="nt">&lt;/description&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;env</span> <span class="na">name=</span><span class="s">&quot;JENKINS_HOME&quot;</span> <span class="na">value=</span><span class="s">&quot;%BASE%&quot;</span><span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="c">&lt;!--</span>
-</span><span class='line'><span class="c">if you&#39;d like to run Jenkins with a specific version of Java, specify a full path to java.exe.</span>
-</span><span class='line'><span class="c">The following value assumes that you have java in your PATH.</span>
-</span><span class='line'><span class="c">  --&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;executable&gt;</span>%BASE%\jre\bin\java<span class="nt">&lt;/executable&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;arguments&gt;</span>-Xrs -Xmx256m -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar &quot;%BASE%\jenkins.war&quot; --httpPort=6080<span class="nt">&lt;/arguments&gt;</span>
-</span><span class='line'>  <span class="c">&lt;!--</span>
-</span><span class='line'><span class="c">interactive flag causes the empty black Java window to be displayed.</span>
-</span><span class='line'><span class="c">I&#39;m still debugging this.</span>
-</span><span class='line'><span class="c">  &lt;interactive /&gt;</span>
-</span><span class='line'><span class="c">  --&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;logmode&gt;</span>rotate<span class="nt">&lt;/logmode&gt;</span>
-</span><span class='line'><span class="nt">&lt;/service&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
 
 
 <!--more-->
@@ -109,7 +90,7 @@
 </ol>
 
 
-<figure class='code'><figcaption><span> (NuGet.config)</span> <a href='http://felegy.github.com/downloads/code/NuGet.config'>download</a></figcaption>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (NuGet.config)</span> <a href='/downloads/code/NuGet.config'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -128,22 +109,21 @@
 <span class='line-number'>16</span>
 </pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 </span><span class='line'><span class="nt">&lt;configuration&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;packageRestore&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">&quot;enabled&quot;</span>
-</span><span class='line'>           <span class="na">value=</span><span class="s">&quot;True&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/packageRestore&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;packageSources&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">&quot;NuGet official package source&quot;</span>
-</span><span class='line'>           <span class="na">value=</span><span class="s">&quot;https://nuget.org/api/v2/&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/packageSources&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;disabledPackageSources</span> <span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;activePackageSource&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">&quot;NuGet official package source&quot;</span>
-</span><span class='line'>           <span class="na">value=</span><span class="s">&quot;https://nuget.org/api/v2/&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/activePackageSource&gt;</span>
+</span><span class='line'>	<span class="nt">&lt;packageRestore&gt;</span>
+</span><span class='line'>		<span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">&quot;enabled&quot;</span>
+</span><span class='line'>			 <span class="na">value=</span><span class="s">&quot;True&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>	<span class="nt">&lt;/packageRestore&gt;</span>
+</span><span class='line'>	<span class="nt">&lt;packageSources&gt;</span>
+</span><span class='line'>		<span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">&quot;NuGet official package source&quot;</span>
+</span><span class='line'>			 <span class="na">value=</span><span class="s">&quot;https://nuget.org/api/v2/&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>	<span class="nt">&lt;/packageSources&gt;</span>
+</span><span class='line'>	<span class="nt">&lt;disabledPackageSources</span> <span class="nt">/&gt;</span>
+</span><span class='line'>	<span class="nt">&lt;activePackageSource&gt;</span>
+</span><span class='line'>		<span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">&quot;NuGet official package source&quot;</span>
+</span><span class='line'>			 <span class="na">value=</span><span class="s">&quot;https://nuget.org/api/v2/&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>	<span class="nt">&lt;/activePackageSource&gt;</span>
 </span><span class='line'><span class="nt">&lt;/configuration&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <h3>MSBuld beállítása</h3>
 
@@ -157,7 +137,7 @@
 </ol>
 
 
-<figure class='code'><figcaption><span> (build.cmd)</span> <a href='http://felegy.github.com/downloads/code/build.cmd'>download</a></figcaption>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (build.cmd)</span> <a href='/downloads/code/build.cmd'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -170,8 +150,7 @@
 </span><span class='line'>   <span class="k">set</span> <span class="nv">config</span><span class="o">=</span>debug
 </span><span class='line'>)
 </span><span class='line'><span class="nv">%WINDIR%</span>\Microsoft.NET\Framework\v<span class="m">4</span>.<span class="m">0</span>.<span class="m">30319</span>\msbuild src<span class="n">/Build.proj</span> <span class="n">/p:Configuration=&quot;%config%&quot;;</span> <span class="n">/flp:LogFile=msbuild.log;Verbosity=Normal</span> <span class="n">/tv:4.0</span>
-</span></code></pre></td></tr></table></div></figure>
-
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <h3>Jenkins job felvétele</h3>
 
