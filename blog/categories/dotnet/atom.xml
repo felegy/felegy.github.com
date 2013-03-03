@@ -4,7 +4,7 @@
   <title><![CDATA[Category: dotnet | LiveWire]]></title>
   <link href="http://felegy.github.com/blog/categories/dotnet/atom.xml" rel="self"/>
   <link href="http://felegy.github.com/"/>
-  <updated>2013-03-03T20:09:40+01:00</updated>
+  <updated>2013-03-03T20:19:54+01:00</updated>
   <id>http://felegy.github.com/</id>
   <author>
     <name><![CDATA[felegy]]></name>
@@ -72,7 +72,7 @@
 <ul>
 <li>be kell lépni a <code>build</code> felhsználóval</li>
 <li>indítsuk el a <code>Git GUI</code> programot és a <code>Help/Show SSH Key</code> menüpont <code>Generate Key</code> gombjára kattintsunk</li>
-<li>én nem adok meg passphrase-t mert egyszerűbb lesz a automatizálni a kulcs használatát és a build gépnek a forrásra csak olvasási jogot szoktam adni</li>
+<li>én nem adok meg passphrase-t mert egyszerűbb lesz automatizálni a kulcs használatát és a build gépnek a forrásra csak olvasási jogot szoktam adni</li>
 <li>a <code>~/.ssh</code> mappába generál két file-t <code>id_rsa</code> és <code>id_rsa.pub</code> értelem szerűen a második a publikus kulcsunk</li>
 <li>a publikus kulcs file tartalmát kell a repsitory szerveren megadni a build felhasználóhoz</li>
 </ul>
