@@ -1,24 +1,98 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[LiveWire]]></title>
-  <link href="http://felegy.github.com/atom.xml" rel="self"/>
-  <link href="http://felegy.github.com/"/>
-  <updated>2013-03-04T06:39:10+01:00</updated>
-  <id>http://felegy.github.com/</id>
-  <author>
-    <name><![CDATA[felegy]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ElasticSearch Windows Service Windows Server x64 - LiveWire</title>
+  <meta name="author" content="felegy">
 
   
-  <entry>
-    <title type="html"><![CDATA[ElasticSearch Windows Service Windows Server x64]]></title>
-    <link href="http://felegy.github.com/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64/"/>
-    <updated>2013-03-04T06:30:00+01:00</updated>
-    <id>http://felegy.github.com/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64</id>
-    <content type="html"><![CDATA[<p>A github-on van hozzá egy service wrapper
+  <meta name="description" content="A github-on van hozzá egy service wrapper
+link, de a winX64 változat valahogy hiányzik, nekem az x86 sem ment, de az ES szerintem nagyon jó cucc és &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://felegy.github.com/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="LiveWire" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">LiveWire</a></h1>
+  
+    <h2>VIGYÁZZ! FESZÜLTSÉG ALATT!</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:felegy.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">ElasticSearch Windows Service Windows Server X64</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-04T06:30:00+01:00" pubdate data-updated="true">2013.03.04 06:30</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>A github-on van hozzá egy service wrapper
 <a href="https://github.com/elasticsearch/elasticsearch-servicewrapper">link</a>, de a winX64 változat valahogy hiányzik, nekem az x86 sem ment, de az ES szerintem nagyon jó cucc és nyilván ha már van akkor fusson 64 biten. Tehát megidéztem régi tanítómesterem szellemét meg azt a kb. 12 éves tudásmorzsát, hogy csináltam én már ilyet … :-)
 A legfrissebb verziót raktam össze <code>0.20.3</code>.</p>
 
@@ -42,7 +116,7 @@ A legfrissebb verziót raktam össze <code>0.20.3</code>.</p>
 </ol>
 
 
-<figure class='code'><figcaption><span> (elasticsearch.cmd)</span> <a href='http://felegy.github.com/downloads/code/elasticsearch.cmd'>download</a></figcaption>
+<figure class='code'><figcaption><span> (elasticsearch.cmd)</span> <a href='/downloads/code/elasticsearch.cmd'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bat'><span class='line'>ElasticSearch.exe <span class="n">//IS//ElasticSearch</span> --DisplayName<span class="o">=</span><span class="s2">&quot;ElasticSearch&quot;</span> --Description<span class="o">=</span><span class="s2">&quot;Distributed RESTful Full-Text Search Engine based on Lucene (http://www.elasticsearch.org/) --Install=D:elasticsearchserviceElasticSearch.exe --Classpath=&quot;</span>D:elasticsearchlibelasticsearch<span class="m">-0</span>.<span class="m">16</span>.<span class="m">0</span>.jar;D:elasticsearchlib*;D:elasticsearchlibsigar*<span class="s2">&quot; --Jvm=&quot;</span>C:Program FilesJavajre<span class="m">6</span>binserverjvm.dll<span class="s2">&quot; --JvmMx=512 --JvmOptions=&quot;</span>-Xms<span class="m">256</span>m;-Xmx<span class="m">1</span>g;-XX:+UseCompressedOops;-Xss<span class="m">128</span>k;-XX:+UseParNewGC;-XX:+UseConcMarkSweepGC;-XX:+CMSParallelRemarkEnabled;-XX:SurvivorRatio<span class="o">=</span><span class="m">8</span>;-XX:MaxTenuringThreshold<span class="o">=</span><span class="m">1</span>;-XX:CMSInitiatingOccupancyFraction<span class="o">=</span><span class="m">75</span>;-XX:+UseCMSInitiatingOccupancyOnly;-XX:+HeapDumpOnOutOfMemoryError;-Djline.enabled<span class="o">=</span>false;-Delasticsearch;-Des-foreground<span class="o">=</span>yes;-Des.path.home<span class="o">=</span>D:elasticsearch<span class="s2">&quot; --StartMode=jvm --StartClass=org.elasticsearch.bootstrap.Bootstrap --StartMethod=main --StartParams=&quot;&quot; --StopMode=jvm --StopClass=org.elasticsearch.bootstrap.Bootstrap --StopMethod=main --StdOutput=auto --StdError=auto --LogLevel=Debug --LogPath=&quot;</span>D:elasticsearchlogs<span class="s2">&quot; --LogPrefix=service --ServiceUser=&quot;</span>NT AUTHORITYNetworkService&quot; --Startup<span class="o">=</span>auto
 </span></code></pre></td></tr></table></div></figure>
@@ -242,7 +316,7 @@ Thread stack size: <code>üres</code></p>
 
 <p><strong>Log:</strong> (ha minden ok ilyet kell látnunk, ha a service-t elindítjuk):</p>
 
-<figure class='code'><figcaption><span> (es.log)</span> <a href='http://felegy.github.com/downloads/code/es.log'>download</a></figcaption>
+<figure class='code'><figcaption><span> (es.log)</span> <a href='/downloads/code/es.log'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -341,211 +415,196 @@ Thread stack size: <code>üres</code></p>
 </span><span class='line'>  [2013-01-29 03:15:35] [info]  ( prunsrv.c:1757) [ 3756] Commons Daemon procrun finished
 </span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  <entry>
-    <title type="html"><![CDATA[Első poszt: .NET build szerver Jenkins-el]]></title>
-    <link href="http://felegy.github.com/blog/2013/03/03/net-build-szerver-jenkins-el/"/>
-    <updated>2013-03-03T13:03:00+01:00</updated>
-    <id>http://felegy.github.com/blog/2013/03/03/net-build-szerver-jenkins-el</id>
-    <content type="html"><![CDATA[<h2>Első lépések</h2>
 
-<ol>
-<li>Először is kell egy Windows 7 alap rendszer, érdemes 64 biteset használni (én elsőre XP-re gondoltam, mert nLight-al lebutítva virtuális gépnek kiváló, csak nincs már hozzá <code>.NET 4.5</code> támogtás)</li>
-<li>Telepíteni kell a <a href="http://go.microsoft.com/fwlink/?LinkID=145505">Web Platform insaller</a>-t és ezzel a <code>.NET 4.5</code>-t</li>
-<li>Telepíteni kell a <code>Jenkins</code>-t (én az aktuális stabil verziót használom <a href="http://mirrors.jenkins-ci.org/windows-stable/latest">Jenkins windows stable latest</a>) a <code>C:\CI\Jenkins</code> mappába, lehet más meghajtóra is tenni, a lényeg, hogy ne legyen space és semmi speciális karakter az útvonalban, ezért nem jó a <code>Program Files</code> mappa.</li>
-<li>Meg kell szerkeszteni a <code>Jenkins.xml</code> -t pl. <code>--httpPort=6080</code> így a 6080-as portot fogja használni</li>
-<li>Fel kell venni egy local user-t, pl. <code>builder</code> és jelszót is be kell állítani neki és adjunk full jogot a <code>C:\CI\Jenkins</code> mappára.</li>
-<li>Be kell állítani a service-ek között a <code>Jenkins</code>-t, hogy a fentebb létrehozott felhasználó nevében fusson</li>
-<li>Indítsuk újra a service-t</li>
-</ol>
+<span class="byline author vcard">Posted by <span class="fn">felegy</span></span>
+
+      
 
 
-<figure class='code'><figcaption><span>Jenkins config</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;service&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;id&gt;</span>jenkins<span class="nt">&lt;/id&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;name&gt;</span>Jenkins<span class="nt">&lt;/name&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;description&gt;</span>This service runs Jenkins continuous integration system.<span class="nt">&lt;/description&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;env</span> <span class="na">name=</span><span class="s">&quot;JENKINS_HOME&quot;</span> <span class="na">value=</span><span class="s">&quot;%BASE%&quot;</span><span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="c">&lt;!--</span>
-</span><span class='line'><span class="c">if you&#39;d like to run Jenkins with a specific version of Java, specify a full path to java.exe.</span>
-</span><span class='line'><span class="c">The following value assumes that you have java in your PATH.</span>
-</span><span class='line'><span class="c">  --&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;executable&gt;</span>%BASE%\jre\bin\java<span class="nt">&lt;/executable&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;arguments&gt;</span>-Xrs -Xmx256m -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar &quot;%BASE%\jenkins.war&quot; --httpPort=6080<span class="nt">&lt;/arguments&gt;</span>
-</span><span class='line'>  <span class="c">&lt;!--</span>
-</span><span class='line'><span class="c">interactive flag causes the empty black Java window to be displayed.</span>
-</span><span class='line'><span class="c">I&#39;m still debugging this.</span>
-</span><span class='line'><span class="c">  &lt;interactive /&gt;</span>
-</span><span class='line'><span class="c">  --&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;logmode&gt;</span>rotate<span class="nt">&lt;/logmode&gt;</span>
-</span><span class='line'><span class="nt">&lt;/service&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
 
 
-<!--more-->
 
 
-<h2>Git beállítása</h2>
-
-<p>A build gép működéséhez kell repositoty kapcsolat is, ami a <code>Jenkins</code> esetében sokféle lehet, én <code>git</code>-et használok és szerintem ma már ez az egyik legáltalánosabb, de lehet akár <code>SVN</code> is.</p>
-
-<ol>
-<li>Installálni kell a <a href="http://code.google.com/p/gitextensions/downloads/list">Git Extensions</a>-t a <code>C:\CI\git</code> mappába
-
-<ul>
-<li>a <code>MSysGit</code>-et az alapértelmezett mappába kell telepíteni <code>C:\Program Files (x86)\git</code>)</li>
-<li>Open SSh-t érdemes választani <code>PuTTY</code> helyett</li>
-</ul>
-</li>
-<li>Telepíteni kell a <code>Jenkins GIT plugin</code>-t a <code>/pluginManager/available</code> listában be kell pipálni és indítani kell a <code>Download now and install after restart</code> gombbal.</li>
-<li>SSh kulcsot kell generálni a build gépnek
-
-<ul>
-<li>be kell lépni a <code>build</code> felhasználóval</li>
-<li>indítsuk el a <code>Git GUI</code> programot és a <code>Help/Show SSH Key</code> menüpont <code>Generate Key</code> gombjára kattintsunk</li>
-<li>én nem adok meg passphrase-t mert egyszerűbb lesz automatizálni a kulcs használatát és a build gépnek a forrásra csak olvasási jogot szoktam adni</li>
-<li>a <code>~/.ssh</code> mappába generál két file-t <code>id_rsa</code> és <code>id_rsa.pub</code> értelem szerűen a második a publikus kulcsunk</li>
-<li>a publikus kulcs file tartalmát kell a repsitory szerveren megadni a build felhasználóhoz</li>
-</ul>
-</li>
-</ol>
 
 
-<h2>Első build job</h2>
-
-<h3>Win SDK és NuGet</h3>
-
-<ol>
-<li>Fel kell telepíteni a gépre a <a href="http://msdn.microsoft.com/en-us/windows/desktop/hh852363.aspx">Windows 8 SDK</a> -t</li>
-<li>Ha a <code>NuGet</code> csomagokat nem tároljuk a repository-ban akkor a <code>build</code> felhasználóval be kell lépni a gépre és a <code>C:\Users\{user}\AppData\Roaming\NuGet</code> mappába be kell másolni a saját nuget konfigurációnkat</li>
-</ol>
-
-
-<figure class='code'><figcaption><span> (NuGet.config)</span> <a href='http://felegy.github.com/downloads/code/NuGet.config'>download</a></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-</span><span class='line'><span class="nt">&lt;configuration&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;packageRestore&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">&quot;enabled&quot;</span>
-</span><span class='line'>           <span class="na">value=</span><span class="s">&quot;True&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/packageRestore&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;packageSources&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">&quot;NuGet official package source&quot;</span>
-</span><span class='line'>           <span class="na">value=</span><span class="s">&quot;https://nuget.org/api/v2/&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/packageSources&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;disabledPackageSources</span> <span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;activePackageSource&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;add</span> <span class="na">key=</span><span class="s">&quot;NuGet official package source&quot;</span>
-</span><span class='line'>           <span class="na">value=</span><span class="s">&quot;https://nuget.org/api/v2/&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/activePackageSource&gt;</span>
-</span><span class='line'><span class="nt">&lt;/configuration&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>MSBuld beállítása</h3>
-
-<p>Nem akarom az msbuild script készítés rejtelmeit hosszan ecsetelni, majd egy másik poszt (vagy posztok) alkalmával. Csak a build szerver szempontjából írom le a telepítést. <a href="http://devopsreactions.tumblr.com/post/44210497845/visiting-the-guy-that-wrote-the-build-scripts">Fun</a></p>
-
-<ol>
-<li><code>C:\Program Files (x86)\MSBuild</code> mappába be kell másolni a szükséges dolgokat, én a fejlesztői gépem teljes <code>MSBuild</code> mappájával felülmásoltam a build gépét</li>
-<li>Visual Studio -ban a projektünkben installálni kell <a href="http://nuget.org/packages/MSBuildTasks/">MSBuildTasks</a> <code>NuGet</code> csomagot</li>
-<li>A solution mappánkban keletkezik egy <code>build.proj</code> file</li>
-<li>A lentebb mellékelt <code>build.cmd</code> -t tegyük a repository-ba (a script feltételezi, hogy a forrás az <code>src</code> mappában van)</li>
-</ol>
-
-
-<figure class='code'><figcaption><span> (build.cmd)</span> <a href='http://felegy.github.com/downloads/code/build.cmd'>download</a></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='bat'><span class='line'><span class="p">@</span><span class="k">echo</span> <span class="k">Off</span>
-</span><span class='line'><span class="k">set</span> <span class="nv">config</span><span class="o">=</span><span class="nv">%1</span>
-</span><span class='line'><span class="k">if</span> <span class="s2">&quot;%config%&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> (
-</span><span class='line'>   <span class="k">set</span> <span class="nv">config</span><span class="o">=</span>debug
-</span><span class='line'>)
-</span><span class='line'><span class="nv">%WINDIR%</span>\Microsoft.NET\Framework\v<span class="m">4</span>.<span class="m">0</span>.<span class="m">30319</span>\msbuild src<span class="n">/Build.proj</span> <span class="n">/p:Configuration=&quot;%config%&quot;;</span> <span class="n">/flp:LogFile=msbuild.log;Verbosity=Normal</span> <span class="n">/tv:4.0</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Jenkins job felvétele</h3>
-
-<ol>
-<li><code>New Job/Build a free-style software project</code> és adjuk meg a job nevét</li>
-<li><code>Source Code Management</code>, válaszunk <code>git</code>-et és a <code>Repository URL</code> mezőbe adjuk meg a repository-nkat (ssh url-t érdemes választan, de ehez rá kell látni a repository szerver 22-es portjára, ha ez nem lehetséges akkor a <code>https</code> url-t kell a következőképpen <code>https://{user}:{password}@{git server}/{repository}.git</code> )</li>
-<li><code>Branch Specifier</code> mezőbe a build branch-et kell megadni (én mindíg saját branch-ben dolgozom és csak a <code>master</code>-t fordíttatom a build géppel), ha üresen hagyjuk akkor az összes branch-et figyeli</li>
-<li><code>Build Triggers</code> részen a <code>Poll SCM</code> -et pipáljuk be és a <code>Schedule</code> mezőbe írjunk mondjuk: <code>*/1 * * * *</code> ez minden percben megnézi, hogy van-e változás a repository-ban</li>
-</ol>
-
-
-<p>Ha most elindítjuk a job-ot akkor ki fogja szedni a repository-ból az aktuális forrást. A <code>/job/{job name}/{build number}/console</code> linken nézhetjük, hogy mi történik.</p>
-
-<h3>Jenkins MSBuild</h3>
-
-<ol>
-<li>Telepíteni kell az <code>Jenkins MSBuild Plugin</code> -t és megint újra kell indítani a Jenkins-t</li>
-<li>Be kell konfigurálni a <code>.net 4</code>-et  <code>/configure</code> <code>MSBuild</code> <code>MSBuild installations...</code> -re kell kattintani, majd <code>Add MSBuild</code>
-
-<ul>
-<li><code>Name</code> mezőben mondjuk <code>.net 4</code></li>
-<li><code>Path to MSBuild</code> -be: <code>C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe</code></li>
-<li><code>Save</code> vagy <code>Apply</code></li>
-</ul>
-</li>
-<li>Be kell állítan egy build step-et
-
-<ul>
-<li>Job-unk konfigurációs oldalán <code>Add build step</code> és válasszuk <code>Build a Visual Studio project or solution using MSBuild</code></li>
-<li><code>MSBuild Version</code> -nél az előbbi <code>.net 4</code>-et válasszuk</li>
-<li><code>MSBuild Build File</code> mezőbe pl. <code>src/Build.proj</code></li>
-<li><code>Command Line Arguments</code> mezőben adjuk meg a szükséges paramétereket, itt kiindulhatunk a <code>build.cmd</code> paramétereiből, de elég csak a <code>/tv:4.0</code> paramétert megadni, ez a 4.0 target version (4.5 esetén is ezt kell megadni)</li>
-</ul>
-</li>
-</ol>
-
-
-<h3>Utolsó lépés</h3>
-
-<p>Már csak futtatni kell a job-ot és készen vagyunk, de a poén kedvéért telepítsük a <code>ChuckNorris Plugin</code>-t és tegyünk be a job-ba egy <code>post build action</code>-t <code>Add post-build action</code> és <code>Activate Chuck Norris</code>.</p>
-
-<p>Indítsuk el a job-ot vagy <code>push</code>-oljunk a repository-ba.</p>
-]]></content>
-  </entry>
   
-</feed>
+
+
+<time datetime="2013-03-04T06:30:00+01:00" pubdate data-updated="true">2013.03.04 06:30</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/elasticsearch/'>ElasticSearch</a>, <a class='category' href='/blog/categories/java/'>Java</a>, <a class='category' href='/blog/categories/windows/'>Windows</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://felegy.github.com/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64/" data-via="felegy" data-counturl="http://felegy.github.com/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/03/03/net-build-szerver-jenkins-el/" title="Previous Post: Első poszt: .NET build szerver Jenkins-el">&laquo; Első poszt: .NET build szerver Jenkins-el</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+<section>
+  <h1>About Me</h1>
+  <div id="twitter-profile" style="margin-top:0.5em;">
+    <p>
+      <strong>felegy</strong> 
+      (<a href="http://twitter.com/felegy">@felegy</a>)
+    </p>
+    <p></p>
+  </div>
+  <script type="text/javascript">
+    $.domReady(function(){
+        var container = $('#twitter-profile'),
+            user = "felegy";
+        
+        function parseTwLinks(s) {
+          var twUrl = "http://www.twitter.com/"
+          s = s.replace(/ (@([\w]+))/g, function(match, p1, p2) {
+              return " <a href='"+twUrl+p2+"'>"+p1+"</a>"
+          }).replace(/ (#([\w]+))/g, function(match, p1, p2) {
+              return " <a href='"+twUrl+"#!/search?q=%23"+p2+"'>"+p1+"</a>"
+          })
+          return s
+        }
+
+        $.ajax({
+            url: "http://api.twitter.com/1/users/show.json?include_entities=false&screen_name="+user+"&callback=?"
+          , type: 'jsonp'
+          , error: function (err) { $('#twitter-profile').addClass('error');  }
+          , success: function(data) {
+              container.html('<img class="left" src="http://api.twitter.com/1/users/profile_image/'+user+'.json?size=bigger" alt="@'+user+'"><p><strong>'+data.name+'</strong> (<a href="http://twitter.com/'+user+'">@'+user+'</a>)<br/>'+data.location+'</p><p>'+parseTwLinks(data.description)+'</p>');
+            }
+        })
+      });
+  </script>
+</section>
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64/">ElasticSearch Windows Service Windows Server x64</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/03/net-build-szerver-jenkins-el/">Első poszt: .NET build szerver Jenkins-el</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("felegy", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/felegy" class="twitter-follow-button" data-show-count="false">Follow @felegy</a>
+  
+</section>
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/106466389759361080156?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - felegy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

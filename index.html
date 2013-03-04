@@ -9,7 +9,8 @@
   <meta name="author" content="felegy">
 
   
-  <meta name="description" content="Első lépések Először is kell egy Windows 7 alap rendszer, érdemes 64 biteset használni (én elsőre XP-re gondoltam, mert nLight-al lebutítva virtuális &hellip;">
+  <meta name="description" content="A github-on van hozzá egy service wrapper
+link, de a winX64 változat valahogy hiányzik, nekem az x86 sem ment, de az ES szerintem nagyon jó cucc és &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,6 +22,7 @@
   <link rel="canonical" href="http://felegy.github.com/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
@@ -64,6 +66,77 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64/">ElasticSearch Windows Service Windows Server X64</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-04T06:30:00+01:00" pubdate data-updated="true">2013.03.04 06:30</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A github-on van hozzá egy service wrapper
+<a href="https://github.com/elasticsearch/elasticsearch-servicewrapper">link</a>, de a winX64 változat valahogy hiányzik, nekem az x86 sem ment, de az ES szerintem nagyon jó cucc és nyilván ha már van akkor fusson 64 biten. Tehát megidéztem régi tanítómesterem szellemét meg azt a kb. 12 éves tudásmorzsát, hogy csináltam én már ilyet … :-)
+A legfrissebb verziót raktam össze <code>0.20.3</code>.</p>
+
+<h2>Hozzávalók:</h2>
+
+<ul>
+<li>JDK 7 x64 <a href="http://www.oracle.com/technetwork/java/javase/downloads/java-se-jdk-7-download-432154.html">link</a></li>
+<li>Apache Commons <a href="http://xenia.sote.hu/ftp/mirrors/www.apache.org//commons/daemon/binaries/windows/commons-daemon-1.0.12-bin-windows.zip">link</a></li>
+<li>JAVA_HOME rendszer környezeti változó <code>C:\Progra~1\Java\jdk1.7.0_11</code></li>
+</ul>
+
+
+<h2>Telepítés:</h2>
+
+<ol>
+<li>A letöltött <code>ES 0.20.3</code> -at kicsomagoljuk a <code>D:\\elasricsearch</code> alá (azért a oda mert a <code>C:\</code> alatt a <code>Program Files</code> -ba tenném, de ott minden féle jogosultsági bukfenc miatt nem megy)</li>
+<li><code>D:\\elasricsearch\bin\elasricsearch.bat</code> elindításával le kell ellenőrizni, hogy megy-e. (ha nem akkor csak a JAVA_HOME-al lehet a bibi, pontosan úgy kell beállítani ahogyan írtam)</li>
+<li><code>D:\\elasricsearch\service</code> alá kicsomagolni a <code>commons-daemon-1.0.12-bin-windows.zip</code> csomagot és az <code>amd64/prunsrv.exe</code> -vel felülírni a kintebbit (mert alapból az x86 van kint).</li>
+<li>Át kell nevezni a file-okat, hogy a feladat kezelőben a host-olt nevet lássuk         <code>prunsvr.exe =&gt; ElasticSearch.exe</code> <code>prunmgr.exe =&gt; ElasticSearchw.exe</code> (ezt a nyolcvan hat nemműködő leírás egyikében láttam, de jó ötlet)</li>
+<li>Kell csinálni egy <code>create-service.cmd</code> -t és a lenti kódot bele kell pakolni, majd futtatni kell a scriptet.</li>
+</ol>
+
+
+<figure class='code'><figcaption><span> (elasticsearch.cmd)</span> <a href='/downloads/code/elasticsearch.cmd'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bat'><span class='line'>ElasticSearch.exe <span class="n">//IS//ElasticSearch</span> --DisplayName<span class="o">=</span><span class="s2">&quot;ElasticSearch&quot;</span> --Description<span class="o">=</span><span class="s2">&quot;Distributed RESTful Full-Text Search Engine based on Lucene (http://www.elasticsearch.org/) --Install=D:elasticsearchserviceElasticSearch.exe --Classpath=&quot;</span>D:elasticsearchlibelasticsearch<span class="m">-0</span>.<span class="m">16</span>.<span class="m">0</span>.jar;D:elasticsearchlib*;D:elasticsearchlibsigar*<span class="s2">&quot; --Jvm=&quot;</span>C:Program FilesJavajre<span class="m">6</span>binserverjvm.dll<span class="s2">&quot; --JvmMx=512 --JvmOptions=&quot;</span>-Xms<span class="m">256</span>m;-Xmx<span class="m">1</span>g;-XX:+UseCompressedOops;-Xss<span class="m">128</span>k;-XX:+UseParNewGC;-XX:+UseConcMarkSweepGC;-XX:+CMSParallelRemarkEnabled;-XX:SurvivorRatio<span class="o">=</span><span class="m">8</span>;-XX:MaxTenuringThreshold<span class="o">=</span><span class="m">1</span>;-XX:CMSInitiatingOccupancyFraction<span class="o">=</span><span class="m">75</span>;-XX:+UseCMSInitiatingOccupancyOnly;-XX:+HeapDumpOnOutOfMemoryError;-Djline.enabled<span class="o">=</span>false;-Delasticsearch;-Des-foreground<span class="o">=</span>yes;-Des.path.home<span class="o">=</span>D:elasticsearch<span class="s2">&quot; --StartMode=jvm --StartClass=org.elasticsearch.bootstrap.Bootstrap --StartMethod=main --StartParams=&quot;&quot; --StopMode=jvm --StopClass=org.elasticsearch.bootstrap.Bootstrap --StopMethod=main --StdOutput=auto --StdError=auto --LogLevel=Debug --LogPath=&quot;</span>D:elasticsearchlogs<span class="s2">&quot; --LogPrefix=service --ServiceUser=&quot;</span>NT AUTHORITYNetworkService&quot; --Startup<span class="o">=</span>auto
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -204,6 +277,10 @@
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64/">ElasticSearch Windows Service Windows Server x64</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/03/03/net-build-szerver-jenkins-el/">Első poszt: .NET build szerver Jenkins-el</a>

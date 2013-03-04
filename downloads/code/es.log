@@ -1,0 +1,48 @@
+	[2013-01-29 00:50:29] [debug] ( prunsrv.c:1672) [ 3756] Commons Daemon procrun log initialized
+	[2013-01-29 00:50:29] [info]  ( prunsrv.c:1676) [ 3756] Commons Daemon procrun (1.0.12.0 64-bit) started
+	[2013-01-29 00:50:29] [info]  ( prunsrv.c:1589) [ 3756] Running 'ElasticSearch' Service...
+	[2013-01-29 00:50:29] [debug] ( prunsrv.c:1370) [ 3612] Inside ServiceMain...
+	[2013-01-29 00:50:29] [debug] ( prunsrv.c:843 ) [ 3612] reportServiceStatusE: 2, 0, 3000, 0
+	[2013-01-29 00:50:29] [info]  ( prunsrv.c:1125) [ 3612] Starting service...
+	[2013-01-29 00:50:29] [debug] ( javajni.c:220 ) [ 3612] loading jvm 'C:\Program Files\Java\jre7\bin\server\jvm.dll'
+	[2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[0] -Xms256m
+	[2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[1] -Xmx1g
+	[2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[2] -XX:+UseCompressedOops
+	[2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[3] -Xss128k
+	[2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[4] -XX:+UseParNewGC
+	[2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[5] -XX:+UseConcMarkSweepGC
+	[2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[6] -XX:+CMSParallelRemarkEnabled
+	[2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[7] -XX:SurvivorRatio=8
+	[2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[8] -XX:MaxTenuringThreshold=1
+	[2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[9] -XX:CMSInitiatingOccupancyFraction=75
+	[2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[10] -XX:+UseCMSInitiatingOccupancyOnly
+	[2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[11] -XX:+HeapDumpOnOutOfMemoryError
+	[2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[12] -Djline.enabled=false
+	[2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[13] -Delasticsearch
+	[2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[14] -Des-foreground=yes
+	[2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[15] -Des.path.home=D:elasticsearch
+	[2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[16] -Djava.class.path=;D:\elasticsearch/lib/elasticsearch-0.20.3.jar;D:\elasticsearch/lib/elasticsearch-0.20.3.jar;D:\elasticsearch/lib/jna-3.3.0.jar;D:\elasticsearch/lib/jts-1.12.jar;D:\elasticsearch/lib/log4j-1.2.17.jar;D:\elasticsearch/lib/lucene-analyzers-3.6.2.jar;D:\elasticsearch/lib/lucene-core-3.6.2.jar;D:\elasticsearch/lib/lucene-highlighter-3.6.2.jar;D:\elasticsearch/lib/lucene-memory-3.6.2.jar;D:\elasticsearch/lib/lucene-queries-3.6.2.jar;D:\elasticsearch/lib/snappy-java-1.0.4.1.jar;D:\elasticsearch/lib/spatial4j-0.3.jar;D:\elasticsearch/lib/sigar/sigar-1.6.4.jar
+	[2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[17] exit
+	[2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[18] -Xms25m
+	[2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[19] -Xmx1024m
+	[2013-01-29 00:50:29] [debug] ( javajni.c:927 ) [ 4404] Java Worker thread started org/elasticsearch/bootstrap/ElasticSearch:main
+	[2013-01-29 00:50:30] [debug] ( prunsrv.c:1184) [ 3612] Java started org/elasticsearch/bootstrap/ElasticSearch
+	[2013-01-29 00:50:30] [info]  ( prunsrv.c:1280) [ 3612] Service started in 1273 ms.
+	[2013-01-29 00:50:30] [debug] ( prunsrv.c:843 ) [ 3612] reportServiceStatusE: 4, 0, 0, 0
+	[2013-01-29 00:50:30] [debug] ( prunsrv.c:1524) [ 3612] Waiting for worker to finish...
+	[2013-01-29 00:50:36] [debug] ( javajni.c:948 ) [ 4404] Java Worker thread finished org/elasticsearch/bootstrap/ElasticSearch:main with status=0
+	[2013-01-29 00:50:36] [debug] ( prunsrv.c:1529) [ 3612] Worker finished.
+	[2013-01-29 00:50:36] [debug] ( prunsrv.c:1552) [ 3612] Waiting for all threads to exit
+	[2013-01-29 03:15:31] [info]  ( prunsrv.c:1343) [ 2376] Console SHUTDOWN event signaled
+	[2013-01-29 03:15:31] [info]  ( prunsrv.c:942 ) [ 2376] Stopping service...
+	[2013-01-29 03:15:31] [debug] ( javajni.c:927 ) [  308] Java Worker thread started org/elasticsearch/bootstrap/ElasticSearch:main
+	[2013-01-29 03:15:32] [debug] ( prunsrv.c:988 ) [ 2376] Waiting for java jni stop worker to finish...
+	[2013-01-29 03:15:35] [debug] ( javajni.c:948 ) [  308] Java Worker thread finished org/elasticsearch/bootstrap/ElasticSearch:main with status=0
+	[2013-01-29 03:15:35] [debug] ( prunsrv.c:990 ) [ 2376] Java jni stop worker finished.
+	[2013-01-29 03:15:35] [debug] ( prunsrv.c:843 ) [ 2376] reportServiceStatusE: 3, 0, 12000, 0
+	[2013-01-29 03:15:35] [debug] ( prunsrv.c:1091) [ 2376] Waiting for worker to die naturally...
+	[2013-01-29 03:15:35] [debug] ( prunsrv.c:1102) [ 2376] Worker finished gracefully in 0 ms.
+	[2013-01-29 03:15:35] [info]  ( prunsrv.c:1112) [ 2376] Service stopped.
+	[2013-01-29 03:15:35] [debug] ( prunsrv.c:843 ) [ 2376] reportServiceStatusE: 1, 0, 0, 0
+	[2013-01-29 03:15:35] [info]  ( prunsrv.c:1591) [ 3756] Run service finished.
+	[2013-01-29 03:15:35] [info]  ( prunsrv.c:1757) [ 3756] Commons Daemon procrun finished
