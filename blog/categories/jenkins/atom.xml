@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: dotnet | LiveWire]]></title>
-  <link href="http://blog.livewire.hu/blog/categories/dotnet/atom.xml" rel="self"/>
+  <title><![CDATA[Category: jenkins | LiveWire]]></title>
+  <link href="http://blog.livewire.hu/blog/categories/jenkins/atom.xml" rel="self"/>
   <link href="http://blog.livewire.hu/"/>
   <updated>2013-03-06T06:29:14+01:00</updated>
   <id>http://blog.livewire.hu/</id>

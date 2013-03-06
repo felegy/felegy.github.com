@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://felegy.github.com/sitemap.xml 
+Sitemap: http://blog.livewire.hu/sitemap.xml 

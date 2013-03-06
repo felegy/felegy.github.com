@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Windows | LiveWire]]></title>
-  <link href="http://felegy.github.com/blog/categories/windows/atom.xml" rel="self"/>
-  <link href="http://felegy.github.com/"/>
-  <updated>2013-03-04T06:39:10+01:00</updated>
-  <id>http://felegy.github.com/</id>
+  <link href="http://blog.livewire.hu/blog/categories/windows/atom.xml" rel="self"/>
+  <link href="http://blog.livewire.hu/"/>
+  <updated>2013-03-06T06:29:14+01:00</updated>
+  <id>http://blog.livewire.hu/</id>
   <author>
     <name><![CDATA[felegy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ElasticSearch Windows Service Windows Server x64]]></title>
-    <link href="http://felegy.github.com/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64/"/>
+    <link href="http://blog.livewire.hu/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64/"/>
     <updated>2013-03-04T06:30:00+01:00</updated>
-    <id>http://felegy.github.com/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64</id>
+    <id>http://blog.livewire.hu/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64</id>
     <content type="html"><![CDATA[<p>A github-on van hozzá egy service wrapper
 <a href="https://github.com/elasticsearch/elasticsearch-servicewrapper">link</a>, de a winX64 változat valahogy hiányzik, nekem az x86 sem ment, de az ES szerintem nagyon jó cucc és nyilván ha már van akkor fusson 64 biten. Tehát megidéztem régi tanítómesterem szellemét meg azt a kb. 12 éves tudásmorzsát, hogy csináltam én már ilyet … :-)
 A legfrissebb verziót raktam össze <code>0.20.3</code>.</p>
