@@ -6,6 +6,7 @@ date: 2013-03-03 13:03
 comments: true
 categories: 
 - dotnet
+- jenkins
 
 ---
 
