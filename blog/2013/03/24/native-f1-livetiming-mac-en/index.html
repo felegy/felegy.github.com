@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Java - LiveWire</title>
+  <title>Native F1 livetiming Mac-en - LiveWire</title>
   <meta name="author" content="felegy">
 
   
-  <meta name="description" content="Category: Java">
+  <meta name="description" content="Régóta használom linuxon a live-f1 csomagot a hivatalos formula1.com livetiming klienseként. Sokkal jobb és gyorsabb mint böngészőből a java-s &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.livewire.hu/blog/categories/java/">
+  <link rel="canonical" href="http://blog.livewire.hu/blog/2013/03/24/native-f1-livetiming-mac-en/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -64,35 +64,117 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Java</h1>
+    
+      <h1 class="entry-title">Native F1 Livetiming Mac-en</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-24T09:29:00+01:00" pubdate data-updated="true">2013.03.24 09:29</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>Régóta használom linuxon a live-f1 csomagot a hivatalos <a href="http://formula1.com">formula1.com</a> livetiming klienseként. Sokkal jobb és gyorsabb mint böngészőből a java-s változat a hivatalos oldalon keresztül. Ezzel együtt régi vágyam, hogy mac-en is mennyen mert eddig mindíg a linux-os szerveremre ssh-ztam be és úgy használtam, de ez így nem túl kényelmes. Most így az új szezon elején nekiveselkedtem és összehoztam, forrásból lefordítottam mac-en és megy :).</p>
 
-  
-  <h2>2013</h2>
-
-<article>
-  
-<h1><a href="/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64/">ElasticSearch Windows Service Windows Server x64</a></h1>
-<time datetime="2013-03-04T06:30:00+01:00" pubdate><span class='month'>Mar</span> <span class='day'>04</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/elasticsearch/'>ElasticSearch</a>, <a class='category' href='/blog/categories/java/'>Java</a>, <a class='category' href='/blog/categories/windows/'>Windows</a></span>
-</footer>
+<!--more-->
 
 
-</article>
+<h2>Lépések:</h2>
 
+<ol>
+<li>Fel kell telepíteni a <a href="http://mxcl.github.com/homebrew/">brew</a> csomagkezelőt</li>
+<li><code>brew install pkg-config</code> és <code>brew install pkg-config</code></li>
+<li>Le kell tölteni a <a href="https://launchpad.net/live-f1/+download">live-f1</a> csomag forrását és ki kell csomagolni</li>
+<li><code>cd live-f1_0.2.11</code> álljunk bele a kitömörített forrás könyvtárába (persze a path-ban a verziószám változhat)</li>
+<li>Kedvenc text editor-unkkal meg kell szerkeszteni a <code>configure</code> file-t és be kell szúrni az elejére a lenti két sort, természetesen itt is változhat a verzió szám</li>
+</ol>
+
+
+<figure class='code'><figcaption><span>configure  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">NEON_CFLAGS</span><span class="o">=</span><span class="s2">&quot;-I /usr/local/Cellar/neon/0.29.6/include/neon&quot;</span>
+</span><span class='line'><span class="nv">NEON_LIBS</span><span class="o">=</span><span class="s2">&quot;-L /usr/local/Cellar/neon/0.29.6/lib -lneon&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ezek után már csak le kell fordítanunk:</p>
+
+<pre><code>make &amp;&amp; make install
+</code></pre>
+
+<p>Ha sikerült akkor <code>live-f1</code> és meg kell adni a <a href="http://formula1.com">formula1.com</a> -on regisztrált felhasználónk e-mail címét és jelszavát, ha elrontjuk akkor <code>~/.f1rc</code> könyvtárat le kell törölni és akkor újra megadhatjuk indításnál. Ha a <code>live-f1: insufficient lines on display</code> hibát kapjuk akkor a terminál betűméretét kell állítani a <code>cmd +</code> és <code>cmd -</code> kombinációkkal.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">felegy</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-24T09:29:00+01:00" pubdate data-updated="true">2013.03.24 09:29</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/mac/'>mac</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.livewire.hu/blog/2013/03/24/native-f1-livetiming-mac-en/" data-via="felegy" data-counturl="http://blog.livewire.hu/blog/2013/03/24/native-f1-livetiming-mac-en/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64/" title="Previous Post: ElasticSearch Windows Service Windows Server x64">&laquo; ElasticSearch Windows Service Windows Server x64</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>
