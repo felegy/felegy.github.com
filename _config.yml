@@ -97,3 +97,6 @@ google_analytics_tracking_id:
 
 # Facebook Like
 facebook_like: true
+
+# Facebook comments
+facebook_appid: 357560987697211
