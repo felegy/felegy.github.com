@@ -31,3 +31,5 @@ Ezek után már csak le kell fordítanunk:
 	make && make install
 	
 Ha sikerült akkor `live-f1` és meg kell adni a [formula1.com](http://formula1.com) -on regisztrált felhasználónk e-mail címét és jelszavát, ha elrontjuk akkor `~/.f1rc` könyvtárat le kell törölni és akkor újra megadhatjuk indításnál. Ha a `live-f1: insufficient lines on display` hibát kapjuk akkor a terminál betűméretét kell állítani a `cmd +` és `cmd -` kombinációkkal.
+
+{% img center /downloads/post_img/Screen_Shot_2013-03-27_0.25.18.png 652 532 live-f1 Mac %}
