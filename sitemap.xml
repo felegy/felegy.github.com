@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+    <url>
+        <loc>http://blog.livewire.hu/blog/2013/03/03/net-build-szerver-jenkins-el/</loc>
+        <lastmod>2013-03-25T05:06:43+01:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://blog.livewire.hu/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64/
+        </loc>
+        <lastmod>2013-03-25T05:06:43+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://blog.livewire.hu/blog/2013/03/24/native-f1-livetiming-mac-en/</loc>
+        <lastmod>2013-03-27T00:44:14+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://blog.livewire.hu/about/</loc>
+        <lastmod>2013-03-25T05:06:53+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://blog.livewire.hu/blog/archives/</loc>
+        <lastmod>2013-03-27T00:44:14+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://blog.livewire.hu/</loc>
+        <lastmod>2013-03-27T00:44:14+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://blog.livewire.hu/robots.txt</loc>
+        <lastmod>2013-03-02T23:08:06+01:00</lastmod>
+    </url>
+</urlset>

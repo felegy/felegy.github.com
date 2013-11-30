@@ -1,0 +1,631 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ElasticSearch Windows Service Windows Server x64 - LiveWire</title>
+  <meta name="author" content="felegy">
+
+  
+  <meta name="description" content="A github-on van hozzá egy service wrapper
+link, de a winX64 változat valahogy hiányzik, nekem az x86 sem ment, de az ES szerintem nagyon jó cucc és &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.livewire.hu/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="LiveWire" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<meta property="fb:app_id" content="357560987697211" />
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">LiveWire</a></h1>
+  
+    <h2>VIGYÁZZ! FESZÜLTSÉG ALATT!</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.livewire.hu" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">ElasticSearch Windows Service Windows Server X64</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-04T06:30:00+01:00" pubdate data-updated="true">2013.03.04 06:30</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>A github-on van hozzá egy service wrapper
+<a href="https://github.com/elasticsearch/elasticsearch-servicewrapper">link</a>, de a winX64 változat valahogy hiányzik, nekem az x86 sem ment, de az ES szerintem nagyon jó cucc és nyilván ha már van akkor fusson 64 biten. Tehát megidéztem régi tanítómesterem szellemét meg azt a kb. 12 éves tudásmorzsát, hogy csináltam én már ilyet … :-)
+A legfrissebb verziót raktam össze <code>0.20.3</code>.</p>
+
+<h2>Hozzávalók:</h2>
+
+<ul>
+<li>JDK 7 x64 <a href="http://www.oracle.com/technetwork/java/javase/downloads/java-se-jdk-7-download-432154.html">link</a></li>
+<li>Apache Commons <a href="http://xenia.sote.hu/ftp/mirrors/www.apache.org//commons/daemon/binaries/windows/commons-daemon-1.0.12-bin-windows.zip">link</a></li>
+<li>JAVA_HOME rendszer környezeti változó <code>C:\Progra~1\Java\jdk1.7.0_11</code></li>
+</ul>
+
+
+<h2>Telepítés:</h2>
+
+<ol>
+<li>A letöltött <code>ES 0.20.3</code> -at kicsomagoljuk a <code>D:\\elasricsearch</code> alá (azért a oda mert a <code>C:\</code> alatt a <code>Program Files</code> -ba tenném, de ott minden féle jogosultsági bukfenc miatt nem megy)</li>
+<li><code>D:\\elasricsearch\bin\elasricsearch.bat</code> elindításával le kell ellenőrizni, hogy megy-e. (ha nem akkor csak a JAVA_HOME-al lehet a bibi, pontosan úgy kell beállítani ahogyan írtam)</li>
+<li><code>D:\\elasricsearch\service</code> alá kicsomagolni a <code>commons-daemon-1.0.12-bin-windows.zip</code> csomagot és az <code>amd64/prunsrv.exe</code> -vel felülírni a kintebbit (mert alapból az x86 van kint).</li>
+<li>Át kell nevezni a file-okat, hogy a feladat kezelőben a host-olt nevet lássuk         <code>prunsvr.exe =&gt; ElasticSearch.exe</code> <code>prunmgr.exe =&gt; ElasticSearchw.exe</code> (ezt a nyolcvan hat nemműködő leírás egyikében láttam, de jó ötlet)</li>
+<li>Kell csinálni egy <code>create-service.cmd</code> -t és a lenti kódot bele kell pakolni, majd futtatni kell a scriptet.</li>
+</ol>
+
+
+<figure class='code'><figcaption><span> (elasticsearch.cmd)</span> <a href='/downloads/code/elasticsearch.cmd'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bat'><span class='line'>ElasticSearch.exe <span class="n">//IS//ElasticSearch</span> --DisplayName<span class="o">=</span><span class="s2">&quot;ElasticSearch&quot;</span> --Description<span class="o">=</span><span class="s2">&quot;Distributed RESTful Full-Text Search Engine based on Lucene (http://www.elasticsearch.org/) --Install=D:elasticsearchserviceElasticSearch.exe --Classpath=&quot;</span>D:elasticsearchlibelasticsearch<span class="m">-0</span>.<span class="m">16</span>.<span class="m">0</span>.jar;D:elasticsearchlib*;D:elasticsearchlibsigar*<span class="s2">&quot; --Jvm=&quot;</span>C:Program FilesJavajre<span class="m">6</span>binserverjvm.dll<span class="s2">&quot; --JvmMx=512 --JvmOptions=&quot;</span>-Xms<span class="m">256</span>m;-Xmx<span class="m">1</span>g;-XX:+UseCompressedOops;-Xss<span class="m">128</span>k;-XX:+UseParNewGC;-XX:+UseConcMarkSweepGC;-XX:+CMSParallelRemarkEnabled;-XX:SurvivorRatio<span class="o">=</span><span class="m">8</span>;-XX:MaxTenuringThreshold<span class="o">=</span><span class="m">1</span>;-XX:CMSInitiatingOccupancyFraction<span class="o">=</span><span class="m">75</span>;-XX:+UseCMSInitiatingOccupancyOnly;-XX:+HeapDumpOnOutOfMemoryError;-Djline.enabled<span class="o">=</span>false;-Delasticsearch;-Des-foreground<span class="o">=</span>yes;-Des.path.home<span class="o">=</span>D:elasticsearch<span class="s2">&quot; --StartMode=jvm --StartClass=org.elasticsearch.bootstrap.Bootstrap --StartMethod=main --StartParams=&quot;&quot; --StopMode=jvm --StopClass=org.elasticsearch.bootstrap.Bootstrap --StopMethod=main --StdOutput=auto --StdError=auto --LogLevel=Debug --LogPath=&quot;</span>D:elasticsearchlogs<span class="s2">&quot; --LogPrefix=service --ServiceUser=&quot;</span>NT AUTHORITYNetworkService&quot; --Startup<span class="o">=</span>auto
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!--more-->
+
+
+<h2>Beállítás</h2>
+
+<p>El kell indítani a <code>ElasticSearchw.exe</code> -t és végig kell menni a beállításokon.</p>
+
+<p><strong>1. Generál panel</strong> (<a href="http://captaincodeman.files.wordpress.com/2012/04/1-general.png">kép</a> csak a látvány kedvéért, a beállítások rosszak a képeken)</p>
+
+<table>
+<thead>
+<tr>
+<th>Beállítás        </th>
+<th> Érték       </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Display name    </td>
+<td> Elastic Search</td>
+</tr>
+<tr>
+<td>Strtup type     </td>
+<td> Automatic  </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><strong>2. Log On</strong> (<a href="http://captaincodeman.files.wordpress.com/2012/04/2-logon.png">kép</a>)</p>
+
+<table>
+<thead>
+<tr>
+<th>Beállítás                </th>
+<th> Érték       </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Log on as               </td>
+<td> This account</td>
+</tr>
+<tr>
+<td>Account             </td>
+<td> NT AUTHORITY \ NETWORK SERVICE</td>
+</tr>
+<tr>
+<td>Password                </td>
+<td> <code>üres</code></td>
+</tr>
+<tr>
+<td>Confirm Password        </td>
+<td> <code>üres</code>  </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><strong>3. Logging</strong> (<a href="http://captaincodeman.files.wordpress.com/2012/04/3-logging.png">kép</a>)</p>
+
+<table>
+<thead>
+<tr>
+<th>Beállítás        </th>
+<th> Érték           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Level           </td>
+<td> Info (amíg először indítjuk lehet <code>debug</code> is )</td>
+</tr>
+<tr>
+<td>Log Path        </td>
+<td> <code>D:\elasticsearch\logs</code></td>
+</tr>
+<tr>
+<td>Pid File        </td>
+<td> <code>üres</code></td>
+</tr>
+<tr>
+<td>Redirect Stdout </td>
+<td> <code>auto</code></td>
+</tr>
+<tr>
+<td>Redirect Stderror </td>
+<td> <code>auto</code>  </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><strong>4. Java</strong> (<a href="http://captaincodeman.files.wordpress.com/2012/04/4-java.png">kép</a>)</p>
+
+<p>Java Virtual Machine: <code>C:\Program Files\Java\jre7\bin\server\jvm.dll</code><br/>
+Java Classpath: <code>;D:\elasticsearch/lib/elasticsearch-0.20.3.jar;D:\elasticsearch/lib/*;D:\elasticsearch/lib/sigar/*</code><br/>
+Java Options:</p>
+
+<pre><code>-Xms256m    -Xmx1g  -XX:+UseCompressedOops  -Xss128k    -XX:+UseParNewGC    -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled   -XX:SurvivorRatio=8 -XX:MaxTenuringThreshold=1  -XX:CMSInitiatingOccupancyFraction=75   -XX:+UseCMSInitiatingOccupancyOnly  -XX:+HeapDumpOnOutOfMemoryError -Djline.enabled=false   -Delasticsearch -Des-foreground=yes -Des.path.home=D:elasticsearch
+</code></pre>
+
+<p>Initial memory pool: 25<br/>
+Maximum memory pool: 1024<br/>
+Thread stack size: <code>üres</code></p>
+
+<p><strong>5. Startup</strong> (<a href="http://captaincodeman.files.wordpress.com/2012/04/5-startup.png">kép</a>)</p>
+
+<table>
+<thead>
+<tr>
+<th>Beállítás        </th>
+<th> Érték           </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class           </td>
+<td> <code>org.elasticsearch.bootstrap.ElasticSearch</code></td>
+</tr>
+<tr>
+<td>Image           </td>
+<td> <code>üres</code></td>
+</tr>
+<tr>
+<td>Working Path    </td>
+<td> <code>üres</code></td>
+</tr>
+<tr>
+<td>Method          </td>
+<td> <code>üres</code></td>
+</tr>
+<tr>
+<td>Arguments       </td>
+<td> <code>üres</code></td>
+</tr>
+<tr>
+<td>Timeout     </td>
+<td> <code>üres</code></td>
+</tr>
+<tr>
+<td>Mode            </td>
+<td> <code>jvm</code>   </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><strong>6. Shutdown</strong> (<a href="http://captaincodeman.files.wordpress.com/2012/04/6-shutdown.png">kép</a>)</p>
+
+<table>
+<thead>
+<tr>
+<th>Beállítás        </th>
+<th> Érték       </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class           </td>
+<td> <code>org.elasticsearch.bootstrap.ElasticSearch</code></td>
+</tr>
+<tr>
+<td>Image           </td>
+<td> <code>üres</code></td>
+</tr>
+<tr>
+<td>Working Path    </td>
+<td> <code>üres</code></td>
+</tr>
+<tr>
+<td>Method          </td>
+<td> <code>üres</code></td>
+</tr>
+<tr>
+<td>Arguments       </td>
+<td> <code>üres</code></td>
+</tr>
+<tr>
+<td>Timeout         </td>
+<td> 0      </td>
+</tr>
+<tr>
+<td>Mode                </td>
+<td> <code>jvm</code>   </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><strong>Log:</strong> (ha minden ok ilyet kell látnunk, ha a service-t elindítjuk):</p>
+
+<figure class='code'><figcaption><span> (es.log)</span> <a href='/downloads/code/es.log'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'> [2013-01-29 00:50:29] [debug] ( prunsrv.c:1672) [ 3756] Commons Daemon procrun log initialized
+</span><span class='line'>  [2013-01-29 00:50:29] [info]  ( prunsrv.c:1676) [ 3756] Commons Daemon procrun (1.0.12.0 64-bit) started
+</span><span class='line'>  [2013-01-29 00:50:29] [info]  ( prunsrv.c:1589) [ 3756] Running &#39;ElasticSearch&#39; Service...
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( prunsrv.c:1370) [ 3612] Inside ServiceMain...
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( prunsrv.c:843 ) [ 3612] reportServiceStatusE: 2, 0, 3000, 0
+</span><span class='line'>  [2013-01-29 00:50:29] [info]  ( prunsrv.c:1125) [ 3612] Starting service...
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:220 ) [ 3612] loading jvm &#39;C:\Program Files\Java\jre7\bin\server\jvm.dll&#39;
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[0] -Xms256m
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[1] -Xmx1g
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[2] -XX:+UseCompressedOops
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[3] -Xss128k
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[4] -XX:+UseParNewGC
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[5] -XX:+UseConcMarkSweepGC
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[6] -XX:+CMSParallelRemarkEnabled
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[7] -XX:SurvivorRatio=8
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[8] -XX:MaxTenuringThreshold=1
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[9] -XX:CMSInitiatingOccupancyFraction=75
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[10] -XX:+UseCMSInitiatingOccupancyOnly
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[11] -XX:+HeapDumpOnOutOfMemoryError
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[12] -Djline.enabled=false
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[13] -Delasticsearch
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[14] -Des-foreground=yes
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[15] -Des.path.home=D:elasticsearch
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[16] -Djava.class.path=;D:\elasticsearch/lib/elasticsearch-0.20.3.jar;D:\elasticsearch/lib/elasticsearch-0.20.3.jar;D:\elasticsearch/lib/jna-3.3.0.jar;D:\elasticsearch/lib/jts-1.12.jar;D:\elasticsearch/lib/log4j-1.2.17.jar;D:\elasticsearch/lib/lucene-analyzers-3.6.2.jar;D:\elasticsearch/lib/lucene-core-3.6.2.jar;D:\elasticsearch/lib/lucene-highlighter-3.6.2.jar;D:\elasticsearch/lib/lucene-memory-3.6.2.jar;D:\elasticsearch/lib/lucene-queries-3.6.2.jar;D:\elasticsearch/lib/snappy-java-1.0.4.1.jar;D:\elasticsearch/lib/spatial4j-0.3.jar;D:\elasticsearch/lib/sigar/sigar-1.6.4.jar
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[17] exit
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[18] -Xms25m
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:690 ) [ 4404] Jvm Option[19] -Xmx1024m
+</span><span class='line'>  [2013-01-29 00:50:29] [debug] ( javajni.c:927 ) [ 4404] Java Worker thread started org/elasticsearch/bootstrap/ElasticSearch:main
+</span><span class='line'>  [2013-01-29 00:50:30] [debug] ( prunsrv.c:1184) [ 3612] Java started org/elasticsearch/bootstrap/ElasticSearch
+</span><span class='line'>  [2013-01-29 00:50:30] [info]  ( prunsrv.c:1280) [ 3612] Service started in 1273 ms.
+</span><span class='line'>  [2013-01-29 00:50:30] [debug] ( prunsrv.c:843 ) [ 3612] reportServiceStatusE: 4, 0, 0, 0
+</span><span class='line'>  [2013-01-29 00:50:30] [debug] ( prunsrv.c:1524) [ 3612] Waiting for worker to finish...
+</span><span class='line'>  [2013-01-29 00:50:36] [debug] ( javajni.c:948 ) [ 4404] Java Worker thread finished org/elasticsearch/bootstrap/ElasticSearch:main with status=0
+</span><span class='line'>  [2013-01-29 00:50:36] [debug] ( prunsrv.c:1529) [ 3612] Worker finished.
+</span><span class='line'>  [2013-01-29 00:50:36] [debug] ( prunsrv.c:1552) [ 3612] Waiting for all threads to exit
+</span><span class='line'>  [2013-01-29 03:15:31] [info]  ( prunsrv.c:1343) [ 2376] Console SHUTDOWN event signaled
+</span><span class='line'>  [2013-01-29 03:15:31] [info]  ( prunsrv.c:942 ) [ 2376] Stopping service...
+</span><span class='line'>  [2013-01-29 03:15:31] [debug] ( javajni.c:927 ) [  308] Java Worker thread started org/elasticsearch/bootstrap/ElasticSearch:main
+</span><span class='line'>  [2013-01-29 03:15:32] [debug] ( prunsrv.c:988 ) [ 2376] Waiting for java jni stop worker to finish...
+</span><span class='line'>  [2013-01-29 03:15:35] [debug] ( javajni.c:948 ) [  308] Java Worker thread finished org/elasticsearch/bootstrap/ElasticSearch:main with status=0
+</span><span class='line'>  [2013-01-29 03:15:35] [debug] ( prunsrv.c:990 ) [ 2376] Java jni stop worker finished.
+</span><span class='line'>  [2013-01-29 03:15:35] [debug] ( prunsrv.c:843 ) [ 2376] reportServiceStatusE: 3, 0, 12000, 0
+</span><span class='line'>  [2013-01-29 03:15:35] [debug] ( prunsrv.c:1091) [ 2376] Waiting for worker to die naturally...
+</span><span class='line'>  [2013-01-29 03:15:35] [debug] ( prunsrv.c:1102) [ 2376] Worker finished gracefully in 0 ms.
+</span><span class='line'>  [2013-01-29 03:15:35] [info]  ( prunsrv.c:1112) [ 2376] Service stopped.
+</span><span class='line'>  [2013-01-29 03:15:35] [debug] ( prunsrv.c:843 ) [ 2376] reportServiceStatusE: 1, 0, 0, 0
+</span><span class='line'>  [2013-01-29 03:15:35] [info]  ( prunsrv.c:1591) [ 3756] Run service finished.
+</span><span class='line'>  [2013-01-29 03:15:35] [info]  ( prunsrv.c:1757) [ 3756] Commons Daemon procrun finished
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">felegy</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-04T06:30:00+01:00" pubdate data-updated="true">2013.03.04 06:30</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/elasticsearch/'>ElasticSearch</a>, <a class='category' href='/blog/categories/java/'>Java</a>, <a class='category' href='/blog/categories/windows/'>Windows</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.livewire.hu/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64/" data-via="felegy" data-counturl="http://blog.livewire.hu/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/03/03/net-build-szerver-jenkins-el/" title="Previous Post: Első poszt: .NET build szerver Jenkins-el">&laquo; Első poszt: .NET build szerver Jenkins-el</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/03/24/native-f1-livetiming-mac-en/" title="Next Post: Native F1 live timing Mac-en">Native F1 live timing Mac-en &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="facebook_comments" aria-live="polite">
+      <noscript>Please enable JavaScript to view the comments powered by facebook</a></noscript>
+<div
+  class="fb-comments"
+  data-href="http://blog.livewire.hu/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64/"
+  data-num-posts="2"
+  data-colorscheme="light" ></div>
+    </div>
+  </section>
+
+
+</div>
+
+<aside class="sidebar">
+  
+    
+<section>
+  <h1>About Me</h1>
+  <div id="twitter-profile" style="margin-top:0.5em;">
+    <p>
+      <strong>felegy</strong> 
+      (<a href="http://twitter.com/felegy">@felegy</a>)
+    </p>
+    <p></p>
+  </div>
+  <script type="text/javascript">
+    $.domReady(function(){
+        var container = $('#twitter-profile'),
+            user = "felegy";
+        
+        function parseTwLinks(s) {
+          var twUrl = "http://www.twitter.com/"
+          s = s.replace(/ (@([\w]+))/g, function(match, p1, p2) {
+              return " <a href='"+twUrl+p2+"'>"+p1+"</a>"
+          }).replace(/ (#([\w]+))/g, function(match, p1, p2) {
+              return " <a href='"+twUrl+"#!/search?q=%23"+p2+"'>"+p1+"</a>"
+          })
+          return s
+        }
+
+        $.ajax({
+            url: "http://api.twitter.com/1/users/show.json?include_entities=false&screen_name="+user+"&callback=?"
+          , type: 'jsonp'
+          , error: function (err) { $('#twitter-profile').addClass('error');  }
+          , success: function(data) {
+              container.html('<img class="left" src="http://api.twitter.com/1/users/profile_image/'+user+'.json?size=bigger" alt="@'+user+'"><p><strong>'+data.name+'</strong> (<a href="http://twitter.com/'+user+'">@'+user+'</a>)<br/>'+data.location+'</p><p>'+parseTwLinks(data.description)+'</p>');
+            }
+        })
+      });
+  </script>
+</section>
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/03/24/native-f1-livetiming-mac-en/">Native F1 live timing Mac-en</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64/">ElasticSearch Windows Service Windows Server x64</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/03/net-build-szerver-jenkins-el/">Első poszt: .NET build szerver Jenkins-el</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("felegy", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/felegy" class="twitter-follow-button" data-show-count="false">Follow @felegy</a>
+  
+</section>
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/106466389759361080156?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - felegy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=357560987697211&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
