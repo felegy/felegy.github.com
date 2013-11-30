@@ -4,7 +4,7 @@
   <title><![CDATA[LiveWire]]></title>
   <link href="http://blog.livewire.hu/atom.xml" rel="self"/>
   <link href="http://blog.livewire.hu/"/>
-  <updated>2013-03-27T00:44:14+01:00</updated>
+  <updated>2013-11-30T13:30:36+01:00</updated>
   <id>http://blog.livewire.hu/</id>
   <author>
     <name><![CDATA[felegy]]></name>
@@ -34,8 +34,8 @@
 </ol>
 
 
-<figure class='code'><figcaption><span>configure  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>configure </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">NEON_CFLAGS</span><span class="o">=</span><span class="s2">&quot;-I /usr/local/Cellar/neon/0.29.6/include/neon&quot;</span>
 </span><span class='line'><span class="nv">NEON_LIBS</span><span class="o">=</span><span class="s2">&quot;-L /usr/local/Cellar/neon/0.29.6/lib -lneon&quot;</span>
@@ -59,7 +59,7 @@
     <updated>2013-03-04T06:30:00+01:00</updated>
     <id>http://blog.livewire.hu/blog/2013/03/04/elasticsearch-windows-service-windows-server-x64</id>
     <content type="html"><![CDATA[<p>A github-on van hozzá egy service wrapper
-<a href="https://github.com/elasticsearch/elasticsearch-servicewrapper">link</a>, de a winX64 változat valahogy hiányzik, nekem az x86 sem ment, de az ES szerintem nagyon jó cucc és nyilván ha már van akkor fusson 64 biten. Tehát megidéztem régi tanítómesterem szellemét meg azt a kb. 12 éves tudásmorzsát, hogy csináltam én már ilyet … :-)
+<a href="https://github.com/elasticsearch/elasticsearch-servicewrapper">link</a>, de a winX64 változat valahogy hiányzik, nekem az x86 sem ment, de az ES szerintem nagyon jó cucc és nyilván ha már van akkor fusson 64 biten. Tehát megidéztem régi tanítómesterem szellemét meg azt a kb. 12 éves tudásmorzsát, hogy csináltam én már ilyet … :&ndash;)
 A legfrissebb verziót raktam össze <code>0.20.3</code>.</p>
 
 <h2>Hozzávalók:</h2>
@@ -83,7 +83,7 @@ A legfrissebb verziót raktam össze <code>0.20.3</code>.</p>
 
 
 <figure class='code'><figcaption><span> (elasticsearch.cmd)</span> <a href='http://blog.livewire.hu/downloads/code/elasticsearch.cmd'>download</a></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bat'><span class='line'>ElasticSearch.exe <span class="n">//IS//ElasticSearch</span> --DisplayName<span class="o">=</span><span class="s2">&quot;ElasticSearch&quot;</span> --Description<span class="o">=</span><span class="s2">&quot;Distributed RESTful Full-Text Search Engine based on Lucene (http://www.elasticsearch.org/) --Install=D:elasticsearchserviceElasticSearch.exe --Classpath=&quot;</span>D:elasticsearchlibelasticsearch<span class="m">-0</span>.<span class="m">16</span>.<span class="m">0</span>.jar;D:elasticsearchlib*;D:elasticsearchlibsigar*<span class="s2">&quot; --Jvm=&quot;</span>C:Program FilesJavajre<span class="m">6</span>binserverjvm.dll<span class="s2">&quot; --JvmMx=512 --JvmOptions=&quot;</span>-Xms<span class="m">256</span>m;-Xmx<span class="m">1</span>g;-XX:+UseCompressedOops;-Xss<span class="m">128</span>k;-XX:+UseParNewGC;-XX:+UseConcMarkSweepGC;-XX:+CMSParallelRemarkEnabled;-XX:SurvivorRatio<span class="o">=</span><span class="m">8</span>;-XX:MaxTenuringThreshold<span class="o">=</span><span class="m">1</span>;-XX:CMSInitiatingOccupancyFraction<span class="o">=</span><span class="m">75</span>;-XX:+UseCMSInitiatingOccupancyOnly;-XX:+HeapDumpOnOutOfMemoryError;-Djline.enabled<span class="o">=</span>false;-Delasticsearch;-Des-foreground<span class="o">=</span>yes;-Des.path.home<span class="o">=</span>D:elasticsearch<span class="s2">&quot; --StartMode=jvm --StartClass=org.elasticsearch.bootstrap.Bootstrap --StartMethod=main --StartParams=&quot;&quot; --StopMode=jvm --StopClass=org.elasticsearch.bootstrap.Bootstrap --StopMethod=main --StdOutput=auto --StdError=auto --LogLevel=Debug --LogPath=&quot;</span>D:elasticsearchlogs<span class="s2">&quot; --LogPrefix=service --ServiceUser=&quot;</span>NT AUTHORITYNetworkService&quot; --Startup<span class="o">=</span>auto
 </span></code></pre></td></tr></table></div></figure>
 
@@ -283,7 +283,7 @@ Thread stack size: <code>üres</code></p>
 <p><strong>Log:</strong> (ha minden ok ilyet kell látnunk, ha a service-t elindítjuk):</p>
 
 <figure class='code'><figcaption><span> (es.log)</span> <a href='http://blog.livewire.hu/downloads/code/es.log'>download</a></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -481,7 +481,7 @@ Thread stack size: <code>üres</code></p>
 
 
 <figure class='code'><figcaption><span> (NuGet.config)</span> <a href='http://blog.livewire.hu/downloads/code/NuGet.config'>download</a></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -529,7 +529,7 @@ Thread stack size: <code>üres</code></p>
 
 
 <figure class='code'><figcaption><span> (build.cmd)</span> <a href='http://blog.livewire.hu/downloads/code/build.cmd'>download</a></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
